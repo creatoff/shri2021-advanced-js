@@ -1,6 +1,6 @@
 module.exports = class {
   /**
-   * The `MySet` constructor lets you create Set objects that store unique values of any type, whether primitive values or object references.
+   * The `MySet` constructor lets you create MySet objects that store unique values of any type, whether primitive values or object references.
    * @param {Iterable} iterable If an iterable object is passed, all of its elements will be added to the new `MySet`
    * @returns A new `MySet` object
    */

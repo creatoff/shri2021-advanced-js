@@ -2,10 +2,10 @@ module.exports = class {
   /**
    * The `MySet` constructor lets you create Set objects that store unique values of any type, whether primitive values or object references.
    * @param {Iterable} iterable If an iterable object is passed, all of its elements will be added to the new `MySet`
-   * @returns A new `Set` object
+   * @returns A new `MySet` object
    */
   constructor(iterable) {
-    this._set = [];
+    this._list = [];
 
     if (iterable && Array.isArray(iterable) && iterable.length !== 0) {
       for (const item of iterable) {
@@ -24,14 +24,14 @@ module.exports = class {
   add(value) {
     let notIncluded = true;
 
-    for (const item of this._set) {
+    for (const item of this._list) {
       if (Object.is(item, value)) {
         notIncluded = false;
       }
     }
 
     if (notIncluded) {
-      this._set.push(value);
+      this._list.push(value);
     }
 
     return this;
@@ -41,18 +41,18 @@ module.exports = class {
    * The `clear()` method removes all elements from a `MySet` object.
    */
   clear() {
-    this._set = [];
+    this._list = [];
   }
 
   /**
-   * The `delete()` method removes a specified value from a `MySet` object, if it is in the set.
+   * The `delete()` method removes a specified value from a `MySet` object, if it presented.
    * @param {*} value The value to remove from `MySet` object
    * @returns {boolean} Returns `true` if value was already in `MySet` object; otherwise `false`
    */
   delete(value) {
     let isDeleted = false;
 
-    this._set = this._set.filter(item => {
+    this._list = this._list.filter(item => {
       const condition = item !== value;
       if (!condition) {
         isDeleted = true;
@@ -68,7 +68,7 @@ module.exports = class {
    * @returns {Iterator} Iterator object
    */
   *entries() {
-    for (const item of this._set) {
+    for (const item of this._list) {
       yield [item, item];
     }
   }
@@ -84,7 +84,7 @@ module.exports = class {
    * @param {object} thisArg Value to use as `this` when executing `callbackFn`
    */
   forEach(callbackFn, thisArg) {
-    for (const item of this._set) {
+    for (const item of this._list) {
       callbackFn.bind(thisArg)(item);
     }
   }
@@ -95,7 +95,7 @@ module.exports = class {
    * @returns Returns `true` if an element with the specified value exists in the `MySet` object; otherwise `false`
    */
   has(value) {
-    return this._set.includes(value);
+    return this._list.includes(value);
   }
 
   /**
@@ -111,7 +111,7 @@ module.exports = class {
    * @returns {number} The value of size is an integer representing how many entries the `MySet` object has
    */
   get size() {
-    return this._set.length;
+    return this._list.length;
   }
 
   /**
@@ -130,7 +130,7 @@ module.exports = class {
   }
 
   *[Symbol.iterator]() {
-    for (const item of this._set) {
+    for (const item of this._list) {
       yield item;
     }
   }

@@ -1,0 +1,11 @@
+{
+  "name": "shri2021-advanced-js",
+  "version": "0.1.0",
+  "description": "Educational implementation of the Set standard object",
+  "main": "solution/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "creatoff",
+  "license": "ISC"
+}
